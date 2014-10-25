@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "Investr"
+        }, 
+        "Investr": {
+            "applicationId": "Qo5G79y9DUGeRyAcysgqpVbTm1tLYq4C9a3Zgk7y", 
+            "masterKey": "0kr5ZlLnZPbUEhtjpBRDIeR04ibJxbWQ9PjQsDnu"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.0"
+    }
+}
