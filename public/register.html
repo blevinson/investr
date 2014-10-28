@@ -94,7 +94,7 @@
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
 						<div class="well no-padding">
 
-							<form action="php/demo-register.php" id="smart-form-register" class="smart-form client-form">
+							<form action="javascript:registerUser(smart-form-register)" id="smart-form-register" class="smart-form client-form">
 								<header>
 									Registration is FREE*
 								</header>
@@ -102,19 +102,19 @@
 								<fieldset>
 									<section>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<input type="text" name="username" placeholder="Username">
+											<input type="text" id="username" name="username" placeholder="Username">
 											<b class="tooltip tooltip-bottom-right">Needed to enter the website</b> </label>
 									</section>
 
 									<section>
 										<label class="input"> <i class="icon-append fa fa-envelope"></i>
-											<input type="email" name="email" placeholder="Email address">
+											<input type="email" id="email" name="email" placeholder="Email address">
 											<b class="tooltip tooltip-bottom-right">Needed to verify your account</b> </label>
 									</section>
 
 									<section>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
-											<input type="password" name="password" placeholder="Password" id="password">
+											<input type="password" id="password" name="password" placeholder="Password" id="password">
 											<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
 									</section>
 
@@ -465,7 +465,13 @@ Contractology supply a wide variety of commercial legal documents, such as <a hr
 		<!-- MAIN APP JS FILE -->
 		<script src="js/app.min.js"></script>
 
+		<!-- PARSE.COM -->
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.12.min.js "></script>
 		<script type="text/javascript">
+			Parse.initialize("Qo5G79y9DUGeRyAcysgqpVbTm1tLYq4C9a3Zgk7y", "HKmNSPGpCh1C1eekDI9wMF4o9nFD8jVWxnGtKi3E");
+		</script>
+		<script src="js/custom.js"></script>
+				<script type="text/javascript">
 			runAllForms();
 			
 			// Model i agree button
@@ -550,11 +556,12 @@ Contractology supply a wide variety of commercial legal documents, such as <a hr
 
 					// Ajax form submition
 					submitHandler : function(form) {
-						$(form).ajaxSubmit({
-							success : function() {
-								$("#smart-form-register").addClass('submited');
-							}
-						});
+						registerUser(form);
+//						$(form).ajaxSubmit({
+//							success : function() {
+//								$("#smart-form-register").addClass('submited');
+//							}
+//						});
 					},
 
 					// Do not change code below
@@ -564,6 +571,31 @@ Contractology supply a wide variety of commercial legal documents, such as <a hr
 				});
 
 			});
+//			var MyUser = Parse.User.extend({
+//				setDisplayName: function(){
+//					// do something
+//					return this;
+//				}
+//			});
+//			var user = new MyUser();
+
+			function registerUser(myform) {
+				var user = new Parse.User();
+				user.set("username", document.getElementById("username").value);
+				user.set("password", document.getElementById("password").value);
+				user.set("email", document.getElementById("email").value);
+//				user.set("firstName", "Brant");
+//				user.set("lastName", "Levinson");
+				user.signUp(null, {
+					success: function (user) {
+						// Everything's done!
+						console.log(user.id);
+					},
+					error: function (user, error) {
+						alert("Error: " + error.code + " " + error.message);
+					}
+				});
+			}
 		</script>
 
 	</body>

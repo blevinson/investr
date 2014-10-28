@@ -93,6 +93,7 @@
 		<!--================================================== -->
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>-->
 
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
@@ -122,8 +123,9 @@
 		<!-- PARSE.COM -->
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.12.min.js "></script>
 		<script type="text/javascript">
-			Parse.initialize("Application ID", "Javascript Key");
-			</script>
+			Parse.initialize("Qo5G79y9DUGeRyAcysgqpVbTm1tLYq4C9a3Zgk7y", "HKmNSPGpCh1C1eekDI9wMF4o9nFD8jVWxnGtKi3E");
+
+		</script>
 
 		<!-- CUSTOM NOTIFICATION -->
 		<script src="js/notification/SmartNotification.min.js"></script>
@@ -169,7 +171,9 @@
 		<script src="js/demo.js"></script>-->
 
 		<!-- MAIN APP JS FILE -->
-		<script src="js/app.js"></script>
+		<script src="js/app.min.js">
+
+		</script>
 
 		<!-- MAIN ANGULAR JS FILE -->
 	  	<script src="js/ng/ng.app.js"></script>
@@ -185,7 +189,7 @@
 
 		<!-- Your GOOGLE ANALYTICS CODE Below -->
 		<script type="text/javascript">
-			Parse.initialize("Application ID", "Javascript Key");
+			checkLoggedInUser("login");
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
 		  _gaq.push(['_trackPageview']);

@@ -52,6 +52,9 @@ angular.module('app.main', [])
 							}
 						});
 						function logout() {
+							//checkLoggedInUser("app.config.js");
+							console.log("logging out...");
+							Parse.User.logOut();
 							window.location = $this.attr('href');
 						}
 				
